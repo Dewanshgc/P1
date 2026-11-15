@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+  color-scheme: light;
+  font-family: "DM Sans", sans-serif;
+  color: #24213a;
+  background: #f5f3ff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: 28px 16px;
+  background:
+    radial-gradient(ellipse at 12% 18%, rgba(196, 181, 253, 0.35), transparent 34%),
+    radial-gradient(ellipse at 88% 82%, rgba(167, 243, 208, 0.3), transparent 32%),
+    #f5f3ff;
+}
+
+.game-card {
+  width: min(100%, 440px);
+  padding: 42px 38px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 24px 70px rgba(58, 45, 108, 0.12), 0 3px 12px rgba(58, 45, 108, 0.04);
+  text-align: center;
+}
+
+.heading .eyebrow {
+  margin: 0 0 10px;
+  color: #8b83a8;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2.2rem, 8vw, 2.8rem);
+  letter-spacing: -0.07em;
+  line-height: 1.1;
+}
+
+h1 span {
+  color: #8b5cf6;
+}
+
+.subtitle {
+  margin: 10px 0 28px;
+  color: #827d96;
+  font-size: 0.92rem;
+}
+
+.scoreboard {
+  display: grid;
+  grid-template-columns: 1fr 30px 1fr;
+  align-items: center;
+  gap: 8px;
+}
+
+.player-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 13px;
+  border: 1px solid #eeebf7;
+  border-radius: 15px;
+  background: #faf9fd;
+  transition: border-color 160ms ease, background 160ms ease;
+}
+
+.player-card.active {
+  border-color: #c4b5fd;
+  background: #f5f1ff;
+}
+
+.player-mark {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.mark-x {
+  color: #8b5cf6;
+}
+
+.mark-o {
+  color: #0e9f83;
+}
+
+.player-name {
+  color: #77718d;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.player-score {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.05rem;
+}
+
+.score-divider {
+  color: #c2bdd1;
+  font-weight: 700;
+}
+
+.status {
+  min-height: 26px;
+  margin: 24px 0 15px;
+  color: #615a76;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.cell {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 1px solid #eeebf7;
+  border-radius: 18px;
+  background: #faf9fd;
+  color: #8b5cf6;
+  cursor: pointer;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2.6rem, 13vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1;
+  transition: transform 140ms ease, border-color 140ms ease, background 140ms ease;
+}
+
+.cell:not(:disabled):hover {
+  transform: translateY(-2px);
+  border-color: #c4b5fd;
+  background: #f5f1ff;
+}
+
+.cell:focus-visible,
+.new-game:focus-visible {
+  outline: 3px solid #a78bfa;
+  outline-offset: 3px;
+}
+
+.cell.mark-o {
+  color: #0e9f83;
+}
+
+.cell:disabled {
+  cursor: default;
+}
+
+.cell.winning {
+  border-color: #a7f3d0;
+  background: #ecfdf5;
+}
+
+.new-game {
+  width: 100%;
+  margin-top: 21px;
+  padding: 13px 18px;
+  border: 0;
+  border-radius: 13px;
+  background: #7251d3;
+  color: white;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 700;
+  transition: background 140ms ease, transform 140ms ease;
+}
+
+.new-game:hover {
+  transform: translateY(-1px);
+  background: #6241c3;
+}
+
+.new-game span {
+  margin-left: 5px;
+  font-size: 1.1rem;
+}
+
+.footer-note {
+  margin: 18px 0 0;
+  color: #a09ab1;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 400px) {
+  .game-card {
+    padding: 34px 22px 24px;
+    border-radius: 23px;
+  }
+
+  .player-card {
+    grid-template-columns: auto 1fr;
+    gap: 4px 8px;
+    padding: 10px;
+  }
+
+  .player-score {
+    grid-column: 2;
+    text-align: left;
+  }
+}
